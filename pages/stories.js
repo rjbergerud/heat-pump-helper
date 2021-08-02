@@ -1,4 +1,3 @@
-import Image from "next/image"
 import {
   FootnotesProvider,
   FootnoteRef as Ref,
@@ -23,7 +22,7 @@ import 'react-a11y-footnotes/dist/styles.css'
 
 const Persona = ({nickname, name, img, challenge, answer, opportunity}) => (
   <div className="max-w-sm space-y-2 rounded bg-gray-50 w-80 p-2 relative">
-    <Image className="rounded" src={img} alt="headshot"/>
+    <img className="rounded" src={img} alt="headshot"/>
     <h3 className="font-semi-bold">{name}</h3>
     <div className="font-light italic text-gray-700 border-l-2 pl-4">{challenge}</div>
     <ul className="font-normal">{answer.map((text, index) => <li key={index}> {text}</li>)}</ul>
