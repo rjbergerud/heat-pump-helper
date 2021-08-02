@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {
   FootnotesProvider,
   FootnoteRef as Ref,
@@ -22,11 +23,11 @@ import 'react-a11y-footnotes/dist/styles.css'
 
 const Persona = ({nickname, name, img, challenge, answer, opportunity}) => (
   <div className="max-w-sm space-y-2 rounded bg-gray-50 w-80 p-2 relative">
-    <img class="rounded" src={img}/>
-    <h3 class="font-semi-bold">{name}</h3>
-    <div class="font-light italic text-gray-700 border-l-2 pl-4">{challenge}</div>
-    <ul class="font-normal">{answer.map((text, index) => <li key={index}> {text}</li>)}</ul>
-    <div class="text-white bg-gradient-to-br from-purple-500 to-indigo-500 -m-2 p-2">{opportunity.map(text => <li>{text}</li>)}</div>
+    <Image className="rounded" src={img} alt="headshot"/>
+    <h3 className="font-semi-bold">{name}</h3>
+    <div className="font-light italic text-gray-700 border-l-2 pl-4">{challenge}</div>
+    <ul className="font-normal">{answer.map((text, index) => <li key={index}> {text}</li>)}</ul>
+    <div className="text-white bg-gradient-to-br from-purple-500 to-indigo-500 -m-2 p-2">{opportunity.map((text, index) => <li key={index}>{text}</li>)}</div>
   </div>
 )
 
@@ -42,10 +43,10 @@ const data = [{
   name: "Colin",
   img: "http://via.placeholder.com/150",
   challenge: "Don't want to pay for space heaters and have a cold house while I wait for an installation",
-  answer: [<span>This is a challenging situation.  Often, when faced with a need
+  answer: [<span key="blah">{`This is a challenging situation.  Often, when faced with a need
     to make a quick decision, we’re more likely to go with what we’re familiar
     with. Hindsight 20/20, but doing a bit of research and making a plan if you
-    already know you have an aging furnace <Ref description={<TwitterTweetEmbed
+    already know you have an aging furnace`} <Ref description={<TwitterTweetEmbed
   tweetId={'1415358135934627841'}
 />}>is advisable</Ref> </span>],
   opportunity: [`The goal for heat pump installers should be to be at the front
@@ -91,17 +92,17 @@ consider negotiating on aspects other than price, like labour warranty.`],
 
 export default function StoriesPage() {
   return (
-    <div class="center">
-      <h1 class="text-4xl mb-6">Your stories</h1>
+    <div className="center">
+      <h1 className="text-4xl mb-6">Your stories</h1>
       <FootnotesProvider>
-      <div class="text-lg max-width font-light">
-        We've been collecting stories trying to find the biggest barriers people
+      <div className="text-lg max-width font-light">
+      {`We've been collecting stories trying to find the biggest barriers people
       face when trying to install heat pumps.  After a number of discussions and interviews with homeowners from across the US and Canada
-      several common challenges began to emerge. <Ref description='Cascading Style Sheets'>CSS</Ref>{' '}
+      several common challenges began to emerge.`} <Ref description='Cascading Style Sheets'>CSS</Ref>{' '}
       </div>
       <div className="flex space-x-4 justify-items-center">
-      {data.map(persona_data => {return (
-          <Persona {...persona_data} />
+      {data.map((persona_data, index) => {return (
+          <Persona key={index} {...persona_data} />
         )
       })
       }
