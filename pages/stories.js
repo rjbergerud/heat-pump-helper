@@ -4,6 +4,19 @@ import {
   Footnotes,
 } from 'react-a11y-footnotes'
 
+import {
+  TwitterTimelineEmbed,
+  TwitterShareButton,
+  TwitterFollowButton,
+  TwitterHashtagButton,
+  TwitterMentionButton,
+  TwitterTweetEmbed,
+  TwitterMomentShare,
+  TwitterDMButton,
+  TwitterVideoEmbed,
+  TwitterOnAirButton
+} from 'react-twitter-embed';
+
 // And the styles
 import 'react-a11y-footnotes/dist/styles.css'
 
@@ -32,7 +45,9 @@ const data = [{
   answer: [<span>This is a challenging situation.  Often, when faced with a need
     to make a quick decision, we’re more likely to go with what we’re familiar
     with. Hindsight 20/20, but doing a bit of research and making a plan if you
-    already know you have an aging furnace <Ref description={< a > See this tweet < /a>}>is advisable</Ref> </span>],
+    already know you have an aging furnace <Ref description={<TwitterTweetEmbed
+  tweetId={'1415358135934627841'}
+/>}>is advisable</Ref> </span>],
   opportunity: [`The goal for heat pump installers should be to be at the front
     of mind when this happens, and also have an ease of installation that
     matches that of gas furnaces. Need to work on ways to target sales to
